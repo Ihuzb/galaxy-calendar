@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!--    <img alt="Vue logo" src="./assets/logo.png">-->
+    <div class="selectButton">
+      <el-popover width="800"
+                  trigger="click">
+        <MapSelect/>
+        <el-button slot="reference">获取定位</el-button>
+      </el-popover>
+    </div>
+    <Calendars/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Calendars from './components/calendar'
+import MapSelect from './components/MapSelect'
+import {Popover, Button} from "element-ui"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Calendars, MapSelect, "el-popover": Popover, "el-button": Button
   }
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  padding: 10px;
+}
+
+.selectButton {
+  margin: 20px;
 }
 </style>
